@@ -2,6 +2,7 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.subsystems.drivers.LimitSwitch;
 import team.gif.robot.subsystems.drivers.Pigeon;
@@ -46,7 +47,11 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
 
     CommandScheduler.getInstance().run();
-    System.out.println(runLim1.limSwitchStatus());
+    // System.out.println(runLim1.limSwitchStatus());
+
+    // Shuffleboard updated limit switch command
+    SmartDashboard.putBoolean("Limit Switch", runLim1.limSwitchStatus());
+
     System.out.println(runPig.get360Heading());
   }
 
