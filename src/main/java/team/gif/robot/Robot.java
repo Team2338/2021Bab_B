@@ -4,6 +4,7 @@ package team.gif.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.subsystems.drivers.LimitSwitch;
+import team.gif.robot.subsystems.drivers.Pigeon;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -15,6 +16,7 @@ public class Robot extends TimedRobot {
 
   public static OI oi;
   public static LimitSwitch runLim1;
+  public static Pigeon runPig;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -28,6 +30,9 @@ public class Robot extends TimedRobot {
 
     // LimitSwitch Object
     runLim1 = new LimitSwitch();
+
+    // Pigeon object
+    runPig = new Pigeon();
   }
 
   /**
@@ -41,8 +46,8 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
 
     CommandScheduler.getInstance().run();
-
-    System.out.print(runLim1.limSwitchStatus());
+    System.out.println(runLim1.limSwitchStatus());
+    System.out.println(runPig.get360Heading());
   }
 
   /**
