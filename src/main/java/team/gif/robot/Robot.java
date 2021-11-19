@@ -3,6 +3,7 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.subsystems.drivers.LimitSwitch;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -13,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 public class Robot extends TimedRobot {
 
   public static OI oi;
+  public static LimitSwitch runLim1;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -24,6 +26,8 @@ public class Robot extends TimedRobot {
     System.out.println("robot init");
     // autonomous chooser on the dashboard.
 
+    // LimitSwitch Object
+    runLim1 = new LimitSwitch();
   }
 
   /**
@@ -38,6 +42,7 @@ public class Robot extends TimedRobot {
 
     CommandScheduler.getInstance().run();
 
+    System.out.print(runLim1.limSwitchStatus());
   }
 
   /**
