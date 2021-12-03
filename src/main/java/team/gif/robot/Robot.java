@@ -1,6 +1,7 @@
 
 package team.gif.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -18,6 +19,7 @@ public class Robot extends TimedRobot {
   public static OI oi;
   public static LimitSwitch runLim1;
   public static Pigeon runPig;
+  public static WPI_TalonSRX talon1;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -53,8 +55,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("Limit Switch", runLim1.limSwitchStatus());
 
     // Shuffleboard updated compass widget
-    //SmartDashboard.putNumber("Heading", runPig.get360Heading());
-    // System.out.println(runPig.get360Heading());
+    SmartDashboard.putNumber("Heading", runPig.get360Heading());
   }
 
   /**
