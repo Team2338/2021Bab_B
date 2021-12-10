@@ -17,24 +17,16 @@ import team.gif.robot.RobotMap;
  * Describe the Subsystem functionality here
  *
  */
-public class LimitSwitch extends SubsystemBase {
-  private static LimitSwitch instance = null;
+public class LimitSwitch {
+  DigitalInput limSwitch;
 
-  // creates a singleton class (only 1 instance can be instantiated)
-  public static LimitSwitch getInstance() {
-    if (instance == null) {
-      instance = new LimitSwitch();
-    }
-    return instance;
+  public LimitSwitch(int id) {
+    // creates new limit switch object
+    limSwitch = new DigitalInput(id);
   }
-  // creates new limit switch object
-  DigitalInput lim1 = new DigitalInput(RobotMap.DEVICE_ID);
 
-  public boolean limSwitchStatus() {
-    if (lim1.get())
-      return true;
-    else
-      return false;
+  public boolean getState() {
+    return !limSwitch.get();
   }
 
 }

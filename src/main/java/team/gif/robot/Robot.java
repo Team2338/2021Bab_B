@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
 
     // LimitSwitch Object
-    runLim1 = new LimitSwitch();
+    runLim1 = new LimitSwitch(RobotMap.DEVICE_ID);
 
     // Pigeon object
     runPig = new Pigeon(talon1); // talon1 is the talon variable from the CIM motor
@@ -49,10 +49,10 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
 
     CommandScheduler.getInstance().run();
-    // System.out.println(runLim1.limSwitchStatus());
+    System.out.println(runLim1.getState());
 
     // Shuffleboard updated limit switch command
-    SmartDashboard.putBoolean("Limit Switch", runLim1.limSwitchStatus());
+    SmartDashboard.putBoolean("Limit Switch", runLim1.getState());
 
     // Shuffleboard updated compass widget
     SmartDashboard.putNumber("Heading", runPig.get360Heading());
