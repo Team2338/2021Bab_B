@@ -59,7 +59,8 @@ public class OI {
     public final AxisButton aLT = new AxisButton(aux,2,.05);
 
     public OI() {
-        dB.whenPressed(new ControllerButton());
+        dB.whenPressed(new ControllerButton(.2));
+        dX.whenPressed(new ControllerButton(-.2));
         /*
          * TODO: Define what each button does
          *

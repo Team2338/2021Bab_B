@@ -16,7 +16,8 @@ import team.gif.robot.subsystems.CIM;
 public class ControllerButton extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   double speed;
-  public ControllerButton() {
+  public ControllerButton(double s) {
+    speed = s;
   }
 
   // Called when the command is initially scheduled.
@@ -27,7 +28,6 @@ public class ControllerButton extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = .2;
     CIM.getInstance().setspeed(speed);
 
   }
